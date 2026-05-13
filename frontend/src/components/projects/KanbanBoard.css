@@ -1,0 +1,118 @@
+.kanban-container {
+  background: white;
+  border-radius: 8px;
+  padding: 20px;
+  margin-top: 20px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.kanban-header {
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.kanban-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.kanban-controls select {
+  padding: 8px 12px;
+  border: 1px solid #cbd5e0;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.kanban-form {
+  background: #f8f9fa;
+  padding: 15px;
+  border-radius: 6px;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.kanban-form input, .kanban-form select, .kanban-form textarea {
+  padding: 8px 12px;
+  border: 1px solid #cbd5e0;
+  border-radius: 4px;
+  font-family: inherit;
+  font-size: 0.95rem;
+}
+
+.kanban-board {
+  display: flex;
+  gap: 15px;
+  overflow-x: auto;
+  padding-bottom: 10px;
+}
+
+.kanban-column {
+  flex: 1;
+  min-width: 250px;
+  background: #f1f5f9;
+  border-radius: 6px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.kanban-column h4 {
+  margin: 0 0 10px 0;
+  padding-bottom: 8px;
+  border-bottom: 2px solid #e2e8f0;
+  color: #4a5568;
+}
+
+.kanban-tasks {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex: 1;
+  min-height: 100px; /* To allow dropping when empty */
+}
+
+.kanban-task-card {
+  background: white;
+  padding: 12px;
+  border-radius: 4px;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+  border-left: 3px solid #1e40af;
+  cursor: grab;
+}
+
+.kanban-task-card:active {
+  cursor: grabbing;
+}
+
+.kanban-task-card h5 {
+  margin: 0 0 5px 0;
+  color: #2d3748;
+}
+
+.kanban-task-card p {
+  margin: 0 0 10px 0;
+  font-size: 0.85rem;
+  color: #718096;
+}
+
+.task-meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8rem;
+}
+
+.task-hours {
+  background: #edf2f7;
+  padding: 2px 6px;
+  border-radius: 4px;
+  color: #4a5568;
+}
+
+.task-assignee {
+  color: #1d4ed8;
+  font-weight: 500;
+}
