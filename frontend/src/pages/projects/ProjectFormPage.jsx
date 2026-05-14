@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useProjectsStore } from '../../stores/projectsStore';
 import { useAuthStore } from '../../stores/authStore';
+import CategoriesModal from '../../components/projects/CategoriesModal';
 import './ProjectFormPage.css';
 
 export default function ProjectFormPage() {
@@ -9,6 +10,8 @@ export default function ProjectFormPage() {
   const navigate = useNavigate();
   const isEditMode = !!id;
   const user = useAuthStore(state => state.user);
+  
+  const [showCategoriesModal, setShowCategoriesModal] = useState(false);
   
   const { 
     currentProject, 
@@ -231,7 +234,7 @@ export default function ProjectFormPage() {
                   </select>
                   <button
                     type="button"
-                    onClick={() => navigate('/categories')}
+                    onClick={() => setShowCategoriesModal(true)}
                     style={{ padding: '8px 12px', background: '#f3f4f6', border: '1px solid #d1d5db', borderRadius: '4px', cursor: 'pointer' }}
                     title="Administrar Categorías"
                   >
@@ -563,6 +566,10 @@ export default function ProjectFormPage() {
           </div>
         </form>
       </main>
+
+      {showCategoriesModal && (
+        <CategoriesModal onClose={() => setShowCategoriesModal(false)} />
+      )}
     </div>
   );
 }

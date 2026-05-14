@@ -4,6 +4,7 @@ import { useAuthStore } from '../stores/authStore';
 import { useProjectsStore } from '../stores/projectsStore';
 import { PieChart, Pie, Cell, Tooltip as RechartsTooltip, Legend, ResponsiveContainer } from 'recharts';
 import CompanySettingsModal from '../components/projects/CompanySettingsModal';
+import CategoriesModal from '../components/projects/CategoriesModal';
 
 const COLORS = ['#28a745', '#ffc107', '#dc3545', '#17a2b8', '#6c757d', '#fd7e14'];
 
@@ -13,6 +14,7 @@ export default function DashboardPage() {
   const { statistics, fetchStatistics } = useProjectsStore();
   const [loading, setLoading] = useState(true);
   const [showSettingsModal, setShowSettingsModal] = useState(false);
+  const [showCategoriesModal, setShowCategoriesModal] = useState(false);
 
   useEffect(() => {
     loadStats();
@@ -165,7 +167,7 @@ export default function DashboardPage() {
             </button>
             <button 
               className="flex items-center gap-3 p-4 bg-gray-50 border-2 border-gray-200 rounded-lg font-semibold text-base transition-all duration-300 hover:bg-blue-700 hover:text-white hover:border-blue-700 hover:-translate-y-0.5 hover:shadow-lg shadow-blue-700/30" 
-              onClick={() => navigate('/categories')}
+              onClick={() => setShowCategoriesModal(true)}
             >
               <span className="text-2xl">🏷️</span>
               <span>Administrar Categorías</span>
@@ -176,6 +178,10 @@ export default function DashboardPage() {
 
       {showSettingsModal && (
         <CompanySettingsModal onClose={() => setShowSettingsModal(false)} />
+      )}
+      
+      {showCategoriesModal && (
+        <CategoriesModal onClose={() => setShowCategoriesModal(false)} />
       )}
     </div>
   );
