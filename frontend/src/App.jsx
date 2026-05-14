@@ -15,6 +15,7 @@ import ProfilePage from './pages/ProfilePage';
 import ProjectsListPage from './pages/projects/ProjectsListPage';
 import ProjectDetailPage from './pages/projects/ProjectDetailPage';
 import ProjectFormPage from './pages/projects/ProjectFormPage';
+import CategoriesPage from './pages/projects/CategoriesPage';
 
 function PrivateRoute({ children }) {
   const isAuthenticated = useAuthStore(state => state.isAuthenticated);
@@ -62,6 +63,12 @@ function App() {
         <Route 
           path="/projects/:id/edit" 
           element={<PrivateRoute><ProjectFormPage /></PrivateRoute>} 
+        />
+        
+        {/* Rutas privadas - Categorías */}
+        <Route 
+          path="/categories" 
+          element={<PrivateRoute><CategoriesPage /></PrivateRoute>} 
         />
         
         {/* Ruta 404 */}

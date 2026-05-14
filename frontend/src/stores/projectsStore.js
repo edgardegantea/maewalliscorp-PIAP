@@ -134,6 +134,39 @@ export const useProjectsStore = create((set, get) => ({
     }
   },
 
+  createCategory: async (data) => {
+    try {
+      const response = await projectsAPI.createCategory(data);
+      set(state => ({ categories: [...state.categories, response.data] }));
+      return response.data;
+    } catch (error) {
+      throw error;
+    }
+  },
+
+  updateCategory: async (id, data) => {
+    try {
+      const response = await projectsAPI.updateCategory(id, data);
+      set(state => ({
+        categories: state.categories.map(c => c.id === id ? response.data : c)
+      }));
+      return response.data;
+    } catch (error) {
+      throw error;
+    }
+  },
+
+  deleteCategory: async (id) => {
+    try {
+      await projectsAPI.deleteCategory(id);
+      set(state => ({
+        categories: state.categories.filter(c => c.id !== id)
+      }));
+    } catch (error) {
+      throw error;
+    }
+  },
+
   // Limpiar estado
   clearCurrentProject: () => set({ currentProject: null }),
   clearError: () => set({ error: null }),

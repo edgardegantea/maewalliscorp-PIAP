@@ -163,6 +163,13 @@ export default function DashboardPage() {
               <span className="text-2xl">📋</span>
               <span>Ver Proyectos</span>
             </button>
+            <button 
+              className="flex items-center gap-3 p-4 bg-gray-50 border-2 border-gray-200 rounded-lg font-semibold text-base transition-all duration-300 hover:bg-blue-700 hover:text-white hover:border-blue-700 hover:-translate-y-0.5 hover:shadow-lg shadow-blue-700/30" 
+              onClick={() => navigate('/categories')}
+            >
+              <span className="text-2xl">🏷️</span>
+              <span>Administrar Categorías</span>
+            </button>
           </div>
         </div>
       </main>

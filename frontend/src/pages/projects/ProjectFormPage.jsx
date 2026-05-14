@@ -215,18 +215,29 @@ export default function ProjectFormPage() {
 
               <div className="form-group">
                 <label  htmlFor="category">Categoría *</label>
-                <select
-                  id="category"
-                  name="category"
-                  value={formData.category}
-                  onChange={handleChange}
-                  disabled={submitting}
-                >
-                  <option value="">Selecciona una categoría</option>
-                  {categories.map(cat => (
-                    <option key={cat.id} value={cat.id}>{cat.name}</option>
-                  ))}
-                </select>
+                <div style={{ display: 'flex', gap: '8px' }}>
+                  <select
+                    id="category"
+                    name="category"
+                    value={formData.category}
+                    onChange={handleChange}
+                    disabled={submitting}
+                    style={{ flexGrow: 1 }}
+                  >
+                    <option value="">Selecciona una categoría</option>
+                    {categories.map(cat => (
+                      <option key={cat.id} value={cat.id}>{cat.name}</option>
+                    ))}
+                  </select>
+                  <button
+                    type="button"
+                    onClick={() => navigate('/categories')}
+                    style={{ padding: '8px 12px', background: '#f3f4f6', border: '1px solid #d1d5db', borderRadius: '4px', cursor: 'pointer' }}
+                    title="Administrar Categorías"
+                  >
+                    ⚙️
+                  </button>
+                </div>
                 {errors.category && <span className="error-text">{errors.category}</span>}
               </div>
             </div>
